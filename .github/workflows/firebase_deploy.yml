@@ -1,0 +1,29 @@
+name: Deploy to Firebase Functions
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Navigate to Functions Directory
+        run: cd backend/functions
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build # This should output to backend/functions/lib. Make sure that functions:source in firebase.json points to functions/lib
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
