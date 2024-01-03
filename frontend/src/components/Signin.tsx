@@ -61,14 +61,14 @@ export const Signin = () => {
             <div className="text-sm text-[#D3D3D3] mb-1">Email</div>
             <input
               type="text"
-              className="w-full border-gray-700 rounded-lg bg-black text-white outline-blue-500 h-[30px] px-[8px] py-1"
+              className="w-full border-[#2E2E2E] border-2 rounded-lg bg-black text-white outline-blue-500 h-[40px] px-[8px] py-1"
             />
           </div>
           <div className="mb-4">
             <div className="text-sm text-[#D3D3D3] mb-1">Password</div>
             <input
               type="text"
-              className="w-full border-gray-700 rounded-lg bg-black text-white outline-blue-500 h-[30px] px-[8px] py-1"
+              className="w-full border-[#2E2E2E] border-2 rounded-lg bg-black text-white outline-blue-500 h-[40px] px-[8px] py-1"
             />
           </div>
           <button className="h-10 w-full bg-blue-500 rounded-full mb-8">
