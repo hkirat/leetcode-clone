@@ -17,7 +17,7 @@ export const helloWorld = onRequest((request, response) => {
   response.send("Hello from Firebase!");
 });
 
-export const getSubmissions = onRequest(async (request, response) => {
+export const getSubmissions = onRequest({ cors: true }, async (request, response) => {
     // const offset = request.body.offset;
     const limit = request.body.limit || 10;
     const res = await db.collection("submissions").limit(limit).orderBy("submitTime", "desc").get();
