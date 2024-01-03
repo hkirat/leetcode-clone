@@ -8,6 +8,8 @@ import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
 import { userAtom } from "./store/atoms/user";
 import { Topbar } from "./components/Topbar";
 import { Card } from "./components/Card";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import { Leaderboard } from "./components/LeaderBoard";
 
 const firebaseConfig = {
