@@ -1,14 +1,14 @@
 import "./App.css";
 import { Landing } from "./components/Landing";
 import { initializeApp } from "firebase/app";
-import { Signin } from "./components/Signin";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useEffect } from "react";
-import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
-import { userAtom } from "./store/atoms/user";
-import { Topbar } from "./components/Topbar";
-import { Card } from "./components/Card";
-import { Leaderboard } from "./components/LeaderBoard";
+import { Signin } from './components/Signin';
+import { getAuth , onAuthStateChanged } from 'firebase/auth';
+import { useEffect } from 'react';
+import { RecoilRoot, useRecoilState, useSetRecoilState } from 'recoil';
+import { userAtom } from './store/atoms/user';
+import { Topbar } from './components/Topbar';
+import { Card } from './components/Card';
+import SubmissionActivity from './components/SubmissionActivity';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBp36r4pKHtr5vTXJF1as-HqZCvHnxFe9A",
@@ -70,6 +70,7 @@ function StoreApp() {
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
         <Topbar />
+        <SubmissionActivity/>
         <Leaderboard />
       </div>
     </div>
