@@ -2,7 +2,12 @@ import { getAuth, sendSignInLinkToEmail, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../App";
 import { GoogleAuthProvider } from "firebase/auth";
-import { FacebookIcon, GoogleIcon, TwitterIcon } from "../assets/icons";
+import {
+  FacebookIcon,
+  GithubIcon,
+  GoogleIcon,
+  TwitterIcon,
+} from "../assets/icons";
 
 const provider = new GoogleAuthProvider();
 
@@ -45,79 +50,69 @@ export const Signin = () => {
   }
 
   return (
-    <div className="relative m-auto mt-16 px-6 text-gray-500 md:px-12 xl:px-40 ">
-      <div className="m-auto md:w-8/12 lg:w-6/12 xl:w-6/12">
-        <div className="rounded-xl bg-slate-200 shadow-xl">
-          <div className="p-6 sm:p-16">
-            <div className="space-y-4">
-              <h2 className="mb-8 text-2xl text-cyan-900 font-bold">
-                Sign in to unlock the the app
-              </h2>
-            </div>
-            <div className="mt-16 grid space-y-4">
+    <>
+      <section className="min-h-screen flex items-stretch text-white">
+        <div
+          className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80)",
+          }}
+        >
+          <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
+          <div className="w-full px-24 z-10">
+            <h1 className="text-5xl font-bold text-left tracking-wide">
+              Keep it special
+            </h1>
+            <p className="text-3xl my-4">
+              Capture your personal memory in a unique way, anywhere.
+            </p>
+          </div>
+          {/* Social media icons */}
+          {/* ... */}
+        </div>
+        <div
+          className="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0"
+          style={{ backgroundColor: "#161616" }}
+        >
+          <div
+            className="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center"
+            style={{
+              backgroundImage:
+                "url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80)",
+            }}
+          >
+            <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
+          </div>
+          <div className="w-full py-6 z-20 ">
+            <h3 className=" text-4xl text-indigo-500">Hey Login here</h3>
+
+            <div className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
               <button
                 onClick={onSignin}
-                className="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
+                className="px-4 pb-2 mt-4 pt-4 w-full bg-white border border-indigo-500 rounded-lg flex items-center justify-center gap-4"
               >
-                <div className="relative flex items-center space-x-4 justify-center">
-                  <img
-                    src="https://tailus.io/sources/blocks/social/preview/images/google.svg"
-                    className="absolute left-0 w-5"
-                    alt="google logo"
-                  />
-                  <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
-                    Continue with Google
-                  </span>
-                </div>
+                <GoogleIcon />
+                <span className=" font-semibold tracking-wide bg-white text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                  Continue with Google
+                </span>
               </button>
-              <button
-                //   onClick={() => signIn("github")}
-                className="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
- hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
-              >
-                <div className="relative flex items-center space-x-4 justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    className="absolute left-0 w-5 text-gray-700"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                  </svg>
-                  <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
-                    Continue with Github
-                  </span>
-                </div>
+              <button className="px-4 pb-2 mt-4 pt-4 w-full bg-white border border-indigo-500 rounded-lg flex items-center justify-center gap-4">
+                <GithubIcon />
+                <span className=" font-semibold tracking-wide bg-white text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                  Continue with Github
+                </span>
               </button>
-              {/* Other buttons */}
-            </div>
-            <div className="mt-32 space-y-4 text-gray-600 text-center sm:-mb-8">
-              <p className="text-xs">
-                By proceeding, you agree to our{" "}
-                <a href="#" className="underline">
-                  Terms of Use
-                </a>{" "}
-                and confirm you have read our{" "}
-                <a href="#" className="underline">
-                  Privacy and Cookie Statement
-                </a>
-                .
-              </p>
-              <p className="text-xs">
-                This site is protected by reCAPTCHA and the{" "}
-                <a href="#" className="underline">
-                  Google Privacy Policy
-                </a>{" "}
-                and{" "}
-                <a href="#" className="underline">
-                  Terms of Service
-                </a>{" "}
-                apply.
+              <p className="text-gray-400 text-sm mt-4 w-3/4 mx-auto">
+                By proceeding, you agree to our Terms of Use and confirm you
+                have read our Privacy and Cookie Statement.
               </p>
             </div>
+            {/* Mobile social media icons */}
+            {/* ... */}
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
