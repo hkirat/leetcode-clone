@@ -1,4 +1,5 @@
-import { Card } from "./Card";
+
+import { Link } from 'react-router-dom';
 
 export const Topbar = () => {
     return <div className="max-w-screen-lg w-full bg-black align-center px-5 pb-5 pt-8">
@@ -38,7 +39,9 @@ function NavbarItem({title, route}: {
     title: string;
     route: string;
 }) {
-    return <div className="mr-10 text-slate-500	text-lg cursor-pointer hover:text-white text-base font-light">
-        {title}
-    </div>
+    return <Link to={route}>
+        <div className="mr-10 text-slate-500 text-lg cursor-pointer hover:text-white text-base font-light">
+            {title}
+        </div>
+    </Link>
 }
