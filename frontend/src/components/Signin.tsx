@@ -74,7 +74,11 @@ export const Signin = () => {
           <button className="h-10 w-full bg-blue-500 rounded-full mb-8">
             LogIn
           </button>
-          <hr />
+          <div className="flex items-center text-[#D3D3D3]">
+            <hr className="w-[40%]" />
+            <div className="px-3 text-sm">OR</div>
+            <hr className="w-[40%]" />
+          </div>
           <div className="mt-8 flex">
             <button
               className="h-10 w-full bg-blue-500 rounded-full"
