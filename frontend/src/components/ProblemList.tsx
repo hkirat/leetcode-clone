@@ -30,7 +30,7 @@ export const ProblemList = ({
         {/* Rows */}
         {problemList.map((item) => (
           <div key={item.id} className="flex justify-between items-center mb-4">
-            <div className="flex gap-8 w-1/3">
+            <div className="flex gap-16 w-1/3">
               <div>{item.id}</div>
               <div>
                 <div className="text-xl mb-2">{item.problemName}</div>
