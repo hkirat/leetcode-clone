@@ -51,7 +51,7 @@ const ProblemList = () => {
             {item.topics.map((topic, topicIndex) => (
               <span onClick={()=>{}}
                 key={topicIndex}
-                className="cursor-pointer rounded py-1 bg-gray-600 text-white px-3 mr-1"
+                className=" hover:bg-gray-800 cursor-pointer rounded py-1 bg-gray-600 text-white px-3 mr-1"
               >
                 {topic}
               </span>
