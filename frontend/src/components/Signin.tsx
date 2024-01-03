@@ -29,58 +29,82 @@ export const Signin = () => {
     }
 
     return (
-        <div className="flex bg-black">
-
-            <div className="w-full md:w-2/5 bg-black flex justify-center items-center h-screen max-sm:hidden max-md:hidden">
-                <div>
-                    <h1 className="text-4xl font-bold mb-4 text-white">Daily Code</h1>
-                    <div className="grid grid-cols-3 gap-4">
-                        {[...Array(9)].map((_, index) => (
-                            <div key={index} className="opacity-50">
-                                <i className="fas fa-arrow-down fa-3x"></i>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-            <div className="w-full h-screen md:w-3/5 bg-gray-900 flex justify-center items-center">
-                <div className="w-full max-w-md">
-                    <div className="p-5">
-                        <h2 className="text-2xl font-semibold mb-2 text-white text-center">Log In</h2>
-
-                    </div>
-                    <div className=' mb-4  justify-center py-1 sm:px-6 lg:px-8 '>
-                        <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
-                            <div className='bg-white py-12 px-4 shadow sm:rounded-lg sm:px-10'>
-                                <div className='flex flex-col items-center justify-center gap-4'>
-                                    <p className='font-normal text-2xl text-gray-900'>Welcome</p>
-
-                                    <p className='font-light text-sm text-gray-600'>
-                                        Log in to continue to DailyCode.
-                                    </p>
-                                    <button
-                                        type='submit'
-                                        className='w-full flex justify-center items-center gap-2 py-3 px-4 border rounded font-light text-md hover:bg-gray-200 focus:outline-none focus:ring-2 '
-                                        onClick={() => onSignin()}
-                                    >
-                                        <img src={GoogleIcon} className='w-5 h-5 mr-2' />
-                                        Continue with Google
-                                    </button>
-                                    <button
-                                        className='w-full flex justify-center items-center gap-2 py-3 px-4 border rounded font-light text-md hover:bg-gray-200 focus:outline-none focus:ring-2 -mt-2'
-                                    >
-                                        <img src={GithubIcon} className='w-5 h-5 mr-2' />
-                                        Continue with Github
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="p-2 text-center">
-                            <p className="text-gray-400">New to Neon? <a href="#" className="text-blue-500">Sign up for an account</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div className="w-[100vw] h-[100vh] flex">
+        <div className="w-[30%] flex items-center justify-center  text-[#ededed] bg-[#131313] max-sm:hidden">
+          <div className="px-10">
+            <h1 className="text-2xl font-bold">Struggle With Coding Problems ?</h1>
+            <p className=" py-4"> Practice daily with this platform to upgrade the skills.</p>
+          </div>
         </div>
+        <div className="w-[70%] bg-[#232323] text-white flex justify-center items-center text-start max-sm:w-full">
+          <div className="w-[350px]">
+            <div className="text-xl">Log In</div>
+            <div className="text-xs mb-[30px] text-[#D3D3D3]">
+              New to Dailycode ? <span className="text-[#0d80f2]" >Sign up for an account</span>
+            </div>
+            <div className="mb-4">
+              <div className="text-sm text-[#D3D3D3] mb-1">Email</div>
+              <input
+                type="text"
+                className="w-full border-[#2E2E2E] border-2 rounded-lg bg-black text-white outline-blue-500 h-[40px] px-[8px] py-1"
+              />
+            </div>
+            <div className="mb-4">
+              <div className="text-sm text-[#D3D3D3] mb-1">Password</div>
+              <input
+                type="password" 
+                className="w-full border-[#2E2E2E] border-2 rounded-lg bg-black text-white outline-blue-500 h-[40px] px-[8px] py-1"
+              />
+            </div>
+            <button className="h-10 w-full bg-blue-500 rounded-full mb-8">
+              Log In
+            </button>
+            <div className="flex items-center text-[#D3D3D3]">
+              <hr className="w-[40%]" />
+              <div className="px-3 text-sm">OR</div>
+              <hr className="w-[40%]" />
+            </div>
+            <div className="mt-8 flex justify-around">
+              <button
+                onClick={() => {
+                  onSignin();
+                }}
+              >
+                <img
+                  className="h-16 rounded-[50%]"
+                  src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                  alt="GitHub"
+                />
+              </button>
+              <button
+                onClick={() => {
+                  onSignin();
+                }}
+              >
+                <img
+                  className="h-16 rounded-[50%]"
+                  src="https://www.shutterstock.com/shutterstock/photos/2275269793/display_1500/stock-vector-google-popular-realistic-social-media-logotype-editorial-illustration-eps-2275269793.jpg"
+                  alt="Google"
+                />
+              </button>
+              <button
+                onClick={() => {
+                  onSignin();
+                }}
+              >
+                <img
+                  className="h-16 rounded-[50%]"
+                  src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                  alt="GitHub"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     )
 }
+
+
+
+
