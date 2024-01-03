@@ -1,5 +1,5 @@
-import './App.css'
-import { Landing } from './components/Landing'
+import "./App.css";
+import { Landing } from "./components/Landing";
 import { initializeApp } from "firebase/app";
 import { Signin } from './components/Signin';
 import { getAuth , onAuthStateChanged } from 'firebase/auth';
@@ -17,57 +17,63 @@ const firebaseConfig = {
   storageBucket: "leetcode-clone-c39eb.appspot.com",
   messagingSenderId: "66814187798",
   appId: "1:66814187798:web:a6b3702e191448722dd837",
-  measurementId: "G-ET5FNB5WCN"
+  measurementId: "G-ET5FNB5WCN",
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 function App() {
-  return <RecoilRoot>
-    <StoreApp />
-  </RecoilRoot> 
+  return (
+    <RecoilRoot>
+      <StoreApp />
+    </RecoilRoot>
+  );
 }
 
 function StoreApp() {
   const [user, setUser] = useRecoilState(userAtom);
 
   useEffect(() => {
-    onAuthStateChanged(auth, function(user) {
+    onAuthStateChanged(auth, function (user) {
       if (user && user.email) {
         setUser({
           loading: false,
           user: {
-            email: user.email
-          }
-        })
+            email: user.email,
+          },
+        });
       } else {
         setUser({
           loading: false,
-        })
+        });
         // No user is signed in.
-        console.log('There is no logged in user');
+        console.log("There is no logged in user");
       }
     });
-  }, [])
+  }, []);
 
   if (user.loading) {
-    return <div>loading ...</div>
+    return <div>loading ...</div>;
   }
-  
+
   if (!user.user) {
-    return <div><Signin /></div>
+    return (
+      <div>
+        <Signin />
+      </div>
+    );
   }
-  
+
   return (
-    <div className="place-items-center grid"> 
+    <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
         <Topbar />
-        <Card>hi there</Card>
         <SubmissionActivity/>
+        <Leaderboard />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
