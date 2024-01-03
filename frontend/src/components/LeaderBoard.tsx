@@ -27,7 +27,7 @@ export const Leaderboard = ({
         <tbody>
           {data.map((item, idx) => (
             <tr key={idx} className={`${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'} py-4 px-2 text-center`}>
-              <td className='w-1/4 px-6 py-4 whitespace-nowrap text-gray-500'>{item.id}</td>
+              <td className='w-1/4 px-6 py-4 whitespace-nowrap text-gray-500'>#{item.id}</td>
               <td className='w-1/2 px-6 py-4 whitespace-nowrap text-gray-500'>{item.name}</td>
               <td className='w-1/4 px-6 py-4 whitespace-nowrap text-gray-500'>{item.points}</td>
             </tr>
