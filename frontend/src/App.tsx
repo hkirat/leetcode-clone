@@ -9,6 +9,7 @@ import { userAtom } from "./store/atoms/user";
 import { Topbar } from "./components/Topbar";
 import { Card } from "./components/Card";
 import { Leaderboard } from "./components/LeaderBoard";
+import { PopularTags } from "./components/PopularTags";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjjsbl9eSDWSmfrWpFPap2uGuwONZ2N4g",
@@ -69,6 +70,15 @@ function StoreApp() {
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
         <Topbar />
+        <div className="grid grid-cols-5 gap-4">
+          <div className="col-span-1 p-4">20%</div>
+          <div className="col-span-3 p-4">
+            <Card>hi there</Card>
+          </div>
+          <div className="col-span-1 p-4">
+            <PopularTags />
+          </div>
+        </div>
         <Leaderboard />
       </div>
     </div>
