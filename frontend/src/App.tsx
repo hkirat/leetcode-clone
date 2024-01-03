@@ -1,13 +1,15 @@
-import './App.css'
-import { Landing } from './components/Landing'
 import { initializeApp } from "firebase/app";
-import { Signin } from './components/Signin';
-import { getAuth , onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useEffect } from 'react';
 import { RecoilRoot, useRecoilState, useSetRecoilState } from 'recoil';
-import { userAtom } from './store/atoms/user';
-import { Topbar } from './components/Topbar';
+import './App.css';
 import { Card } from './components/Card';
+import { Landing } from './components/Landing';
+import { Signin } from './components/Signin';
+import { SubmissionActivity } from "./components/SubmissionActivity";
+import { SubmissionActivityList } from "./components/SubmissionActivityList";
+import { Topbar } from './components/Topbar';
+import { userAtom } from './store/atoms/user';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjjsbl9eSDWSmfrWpFPap2uGuwONZ2N4g",
@@ -50,19 +52,27 @@ function StoreApp() {
     });
   }, [])
 
+
+ const submissions = [
+   { Name: 'John', position: 1, time: '10:00', answerIsCorrect: true, username: 'test' },
+   { Name: 'John', position: 1, time: '10:00', answerIsCorrect: true, username: 'test' },
+   { Name: 'John', position: 1, time: '10:00', answerIsCorrect: true, username: 'test' }
+    // Add more submissions as needed
+];
+
   if (user.loading) {
     return <div>loading ...</div>
   }
   
-  if (!user.user) {
-    return <div><Signin /></div>
-  }
+  // if (!user.user) {
+  //   return <div><Signin /></div>
+  // }
   
   return (
     <div className="place-items-center grid"> 
       <div className="max-w-screen-lg w-full">
         <Topbar />
-        <Card>hi there</Card>
+        <Card><SubmissionActivityList submissions={submissions} /></Card>
       </div>
     </div>
   )
