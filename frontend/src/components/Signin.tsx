@@ -52,7 +52,7 @@ export const Signin = () => {
         </div>
       </div>
       <div className="w-[70%] bg-[#232323] text-white flex justify-center items-center text-start">
-        <div>
+        <div className="w-[350px]">
           <div className="text-xl">Log In</div>
           <div className="text-xs mb-[30px] text-[#D3D3D3]">
             New to LeetCode? Sign up for an account
