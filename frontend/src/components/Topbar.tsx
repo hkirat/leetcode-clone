@@ -28,7 +28,7 @@ const topbarItems =[
 function NavBar() {
     return <div className="flex mt-4 justify-between">
         <div className="flex">
-            {topbarItems.map(item => <NavbarItem route={item.route} title={item.title} />)}
+            {topbarItems.map((item, idx) => <NavbarItem key={idx} route={item.route} title={item.title} />)}
         </div>
         <input className="bg-white rounded-md px-3 py-1 focus:shadow-[0_0_0_0.3rem_#6b7280] focus-visible:outline-none" placeholder="Search" />
     </div>
