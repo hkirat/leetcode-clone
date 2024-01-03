@@ -1,5 +1,3 @@
-import ReactDOM from 'react-dom';
-
 import Editor from '@monaco-editor/react';
 import { useState } from 'react';
 
