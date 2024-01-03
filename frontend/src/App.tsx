@@ -92,8 +92,7 @@ function StoreApp() {
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
         <Topbar />
-        {/* <Leaderboard leaderboard={leaderboardData} /> */}
-        <ProblemList problemList={problemList} />
+     <ProblemList />
       </div>
     </div>
   );
