@@ -7,7 +7,7 @@ export const Leaderboard = ({
 }) => {
   return (
     <div className='my-8 shadow overflow-hidden rounded border-b border-gray-200'>
-      <h1 className='text-bold text-4xl py-4 px-4'>Leaderboards</h1>
+      <h1 className='text-bold text-4xl py-4 px-4'>Leaderboard</h1>
       <table className='my-4 mih-h-[50vh] min-w-full divide-y divide-gray-200'>
         <thead className='bg-gray-50'>
           <tr>
