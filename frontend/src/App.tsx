@@ -79,6 +79,7 @@ function StoreApp() {
             <Route path="/about" element={<About />} />
             <Route path="/activity" element={<Submissions />} />
             <Route path="/problems" element={<ProblemList problemList={problemList} />} />
+            <Route path = "/signin" element= {<Signin />} />
           </Routes>
         </Router>
         {/* <Leaderboard /> */}
