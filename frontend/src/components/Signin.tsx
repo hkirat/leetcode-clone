@@ -45,13 +45,13 @@ export const Signin = () => {
 
   return (
     <div className="w-[100vw] h-[100vh] flex">
-      <div className="w-[30%] flex items-center justify-center text-4xl font-bold text-[#ededed] bg-[#131313]">
+      <div className="w-[30%] flex items-center justify-center text-4xl font-bold text-[#ededed] bg-[#131313] max-sm:hidden">
         <div>
           <h1>Set up serverless</h1>
           <h1>Postgres in seconds.</h1>
         </div>
       </div>
-      <div className="w-[70%] bg-[#232323] text-white flex justify-center items-center text-start">
+      <div className="w-[70%] bg-[#232323] text-white flex justify-center items-center text-start max-sm:w-full">
         <div className="w-[350px]">
           <div className="text-xl">Log In</div>
           <div className="text-xs mb-[30px] text-[#D3D3D3]">
