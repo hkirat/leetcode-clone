@@ -34,6 +34,16 @@ function App() {
 function StoreApp() {
   const [user, setUser] = useRecoilState(userAtom);
 
+  const leaderboardData = [
+    { id: 1, icon: "", name: "Siddharth", points: 23 },
+    { id: 1, icon: "", name: "Ayush", points: 43 },
+    { id: 1, icon: "", name: "KKumar", points: 231 },
+    { id: 1, icon: "", name: "FEFE", points: 213 },
+    { id: 1, icon: "", name: "Jannat", points: 23 },
+    { id: 1, icon: "", name: "Siddharth", points: 34 },
+    { id: 1, icon: "", name: "Siddharth", points: 2344 },
+  ];
+
   useEffect(() => {
     onAuthStateChanged(auth, function (user) {
       if (user && user.email) {
@@ -69,7 +79,7 @@ function StoreApp() {
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
         <Topbar />
-        <Leaderboard />
+        <Leaderboard leaderboard={leaderboardData} />
       </div>
     </div>
   );
