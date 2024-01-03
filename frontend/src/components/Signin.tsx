@@ -71,19 +71,22 @@ export const Signin = () => {
               className="w-full border-gray-700 rounded-lg bg-black text-white outline-blue-500 h-[30px] px-[8px] py-1"
             />
           </div>
-          <button className="h-10 w-full bg-blue-500 rounded-full">
+          <button className="h-10 w-full bg-blue-500 rounded-full mb-8">
             LogIn
           </button>
+          <hr />
+          <div className="mt-8 flex">
+            <button
+              className="h-10 w-full bg-blue-500 rounded-full"
+              onClick={() => {
+                onSignin();
+              }}
+            >
+              Login with google
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-// <button
-//   onClick={() => {
-//     onSignin();
-//   }}
-// >
-//   Login with google
-// </button>;
