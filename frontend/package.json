@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "chart.js": "^4.4.1",
     "firebase": "^10.7.1",
+    "primereact": "^10.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recoil": "^0.7.7"
