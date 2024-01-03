@@ -44,6 +44,9 @@ function StoreApp() {
             email: user.email,
           },
         });
+            email: user.email,
+          },
+        });
       } else {
         setUser({
           loading: false,
@@ -70,7 +73,16 @@ function StoreApp() {
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
         <Topbar />
-        <Leaderboard />
+        <Leaderboard
+          leaderboard={[
+            { name: "Vishrudh", image: "Asd", points: 200 },
+            { name: "Akshay", image: "Asd", points: 200 },
+            { name: "Vignesh", image: "Asd", points: 190 },
+            { name: "Yusaf", image: "Asd", points: 100 },
+            { name: "Rohit", image: "Asd", points: 70 },
+            { name: "Rajesh", image: "Asd", points: 65 },
+          ]}
+        />
       </div>
     </div>
   );
