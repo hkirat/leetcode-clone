@@ -1,18 +1,10 @@
 // see https://erdos.sdslabs.co/users
+
 export const Leaderboard = ({
   leaderboard,
 }: {
-  leaderboard: { image: string; name: string; points: number }[];
+  leaderboard: { image: string; name: string; points: number; id: string }[];
 }) => {
-  const data = [
-    { id: 1, icon: "", name: "Siddharth", points: 23 },
-    { id: 1, icon: "", name: "Ayush", points: 43 },
-    { id: 1, icon: "", name: "KKumar", points: 231 },
-    { id: 1, icon: "", name: "FEFE", points: 213 },
-    { id: 1, icon: "", name: "Jannat", points: 23 },
-    { id: 1, icon: "", name: "Siddharth", points: 34 },
-    { id: 1, icon: "", name: "Siddharth", points: 2344 },
-  ];
   return (
     <div className='my-8 shadow overflow-hidden rounded border-b border-gray-200'>
       <h1 className='text-bold text-4xl py-4 px-4'>Leaderboards</h1>
@@ -25,7 +17,7 @@ export const Leaderboard = ({
           </tr>
         </thead>
         <tbody>
-          {data.map((item, idx) => (
+          {leaderboard.map((item, idx) => (
             <tr key={idx} className={`${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'} py-4 px-2 text-center`}>
               <td className='w-1/4 px-6 py-4 whitespace-nowrap text-gray-500'>#{item.id}</td>
               <td className='w-1/2 px-6 py-4 whitespace-nowrap text-gray-500'>{item.name}</td>
