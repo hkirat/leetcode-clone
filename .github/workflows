@@ -18,6 +18,12 @@ jobs:
     - name: Test the code
       run: npm test
     - name: Deploy to Firebase
-      uses: hkirat/leetcode-clone
-      with:
-        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
+        uses: sws2apps/firebase-deployment@main #consider using pin for dependabot auto update
+        with:
+          workloadIdentityProvider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          serviceAccount: ${{ secrets.SERVICE_ACCOUNT }}
+          node-version: 18 #optional, node-version you want to use following the Semantic Versioning Specification, default to current
+          config: 'frontend/firebase.json' #optional
+          function: true #optional & boolean
+          hosting: true #optional & boolean
+          project: my-firebase-project #required
