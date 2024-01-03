@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.seperatorColor {
+  background: hsl(214.3 31.8% 91.4%);
+}
+.bordercolor {
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+}
+@media (max-width: 1023px) {
+  .centered {
+    display: grid;
+    place-content: center;
+    min-height: calc(100dvh - 64px);
+  }
+}
+@media (max-width: 1024px) {
+  .modalWidth {
+    width: calc(100vw - 2rem);
+    max-width: 350px;
+  }
+}
+.minHeight {
+  min-height: calc(100dvh - 64px);
+}
+.createModalWidth {
+  width: calc(100vw - 2rem);
+  max-width: 512px;
+}
