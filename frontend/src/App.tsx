@@ -8,6 +8,7 @@ import { RecoilRoot, useRecoilState, useSetRecoilState } from 'recoil';
 import { userAtom } from './store/atoms/user';
 import { Topbar } from './components/Topbar';
 import { Card } from './components/Card';
+import SubmissionActivity from './components/SubmissionActivity';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjjsbl9eSDWSmfrWpFPap2uGuwONZ2N4g",
@@ -63,6 +64,7 @@ function StoreApp() {
       <div className="max-w-screen-lg w-full">
         <Topbar />
         <Card>hi there</Card>
+        <SubmissionActivity/>
       </div>
     </div>
   )
