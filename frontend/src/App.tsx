@@ -12,13 +12,14 @@ import { Leaderboard } from "./components/LeaderBoard";
 import { ProblemList } from "./components/ProblemList";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAjjsbl9eSDWSmfrWpFPap2uGuwONZ2N4g",
-  authDomain: "leetcode-clone-c39eb.firebaseapp.com",
-  projectId: "leetcode-clone-c39eb",
-  storageBucket: "leetcode-clone-c39eb.appspot.com",
-  messagingSenderId: "66814187798",
-  appId: "1:66814187798:web:a6b3702e191448722dd837",
-  measurementId: "G-ET5FNB5WCN",
+  apiKey: "AIzaSyBp36r4pKHtr5vTXJF1as-HqZCvHnxFe9A",
+  authDomain: "toptal-b252d.firebaseapp.com",
+  databaseURL: "https://toptal-b252d.firebaseio.com",
+  projectId: "toptal-b252d",
+  storageBucket: "toptal-b252d.appspot.com",
+  messagingSenderId: "721127361937",
+  appId: "1:721127361937:web:d9223765565381c26f1e30",
+  measurementId: "G-X4BYY4B0BS"
 };
 
 // Initialize Firebase
