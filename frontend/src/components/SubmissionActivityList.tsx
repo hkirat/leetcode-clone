@@ -8,6 +8,13 @@ interface Submission {
     answerIsCorrect: boolean;
 }
 
+
+// Example Object : 
+// const submissions = [
+//     { Name: 'John', position: 1, time: '10:00', answerIsCorrect: true },
+//     // Add more submissions as needed
+// ];
+
 interface SubmissionActivityListProps {
     submissions: Submission[];
 }
