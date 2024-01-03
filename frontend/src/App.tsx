@@ -53,7 +53,7 @@ function StoreApp() {
   }
   
   if (!user.user) {
-    return <div><Signin /></div>
+    return <Signin />
   }
   
   return (
