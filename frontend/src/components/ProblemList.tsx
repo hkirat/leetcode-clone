@@ -15,7 +15,7 @@ export const ProblemList = ({
 }) => {
   const tagJSX = <div></div>;
   return (
-    // The first div should probably be a reusable component for layouting
+    // The first div sould probably be a reusable component for layouting
     <div className="my-8">
       <h1 className="text-bold text-4xl my-8 text-bold">All Problems</h1>
       <div className="shadow-md bg-gray-50 px-4 py-4">
