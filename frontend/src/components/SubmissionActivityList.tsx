@@ -4,7 +4,7 @@ import { globalSubmissions } from "../store/atoms/submissions"
 
 // see left side of https://erdos.sdslabs.co/activity
 export const SubmissionActivityList = () => {
-    return <Suspense fallback={() => <>Loading...</>}>
+    return <Suspense fallback={"loading..."}>
         <_SubmissionActivityList />
     </Suspense>
 }
