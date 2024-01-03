@@ -79,14 +79,36 @@ export const Signin = () => {
             <div className="px-3 text-sm">OR</div>
             <hr className="w-[40%]" />
           </div>
-          <div className="mt-8 flex">
+          <div className="mt-8 flex justify-around">
             <button
-              className="h-10 w-full bg-blue-500 rounded-full"
               onClick={() => {
                 onSignin();
               }}
             >
-              Login with google
+              <img
+                className="h-16 rounded-[50%]"
+                src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+              />
+            </button>
+            <button
+              onClick={() => {
+                onSignin();
+              }}
+            >
+              <img
+                className="h-16 rounded-[50%]"
+                src="https://www.shutterstock.com/shutterstock/photos/2275269793/display_1500/stock-vector-google-popular-realistic-social-media-logotype-editorial-illustration-eps-2275269793.jpg"
+              />
+            </button>
+            <button
+              onClick={() => {
+                onSignin();
+              }}
+            >
+              <img
+                className="h-16 rounded-[50%]"
+                src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+              />
             </button>
           </div>
         </div>
