@@ -1,66 +1,79 @@
-import './App.css'
-import { Landing } from './components/Landing'
+import "./App.css";
+import { Landing } from "./components/Landing";
 import { initializeApp } from "firebase/app";
-import { Signin } from './components/Signin';
-import { getAuth , onAuthStateChanged } from 'firebase/auth';
-import { useEffect } from 'react';
-import { RecoilRoot, useRecoilState, useSetRecoilState } from 'recoil';
-import { userAtom } from './store/atoms/user';
+import { Signin } from "./components/Signin";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
+import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
+import { userAtom } from "./store/atoms/user";
+import { Topbar } from "./components/Topbar";
+import { Card } from "./components/Card";
+import { Leaderboard } from "./components/LeaderBoard";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAjjsbl9eSDWSmfrWpFPap2uGuwONZ2N4g",
-  authDomain: "leetcode-clone-c39eb.firebaseapp.com",
-  projectId: "leetcode-clone-c39eb",
-  storageBucket: "leetcode-clone-c39eb.appspot.com",
-  messagingSenderId: "66814187798",
-  appId: "1:66814187798:web:a6b3702e191448722dd837",
-  measurementId: "G-ET5FNB5WCN"
+  apiKey: "AIzaSyBp36r4pKHtr5vTXJF1as-HqZCvHnxFe9A",
+  authDomain: "toptal-b252d.firebaseapp.com",
+  databaseURL: "https://toptal-b252d.firebaseio.com",
+  projectId: "toptal-b252d",
+  storageBucket: "toptal-b252d.appspot.com",
+  messagingSenderId: "721127361937",
+  appId: "1:721127361937:web:d9223765565381c26f1e30",
+  measurementId: "G-X4BYY4B0BS"
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 function App() {
-  return <RecoilRoot>
-    <StoreApp />
-  </RecoilRoot> 
+  return (
+    <RecoilRoot>
+      <StoreApp />
+    </RecoilRoot>
+  );
 }
 
 function StoreApp() {
   const [user, setUser] = useRecoilState(userAtom);
 
   useEffect(() => {
-    onAuthStateChanged(auth, function(user) {
+    onAuthStateChanged(auth, function (user) {
       if (user && user.email) {
         setUser({
           loading: false,
           user: {
-            email: user.email
-          }
-        })
+            email: user.email,
+          },
+        });
       } else {
         setUser({
           loading: false,
-        })
+        });
         // No user is signed in.
-        console.log('There is no logged in user');
+        console.log("There is no logged in user");
       }
     });
-  }, [])
+  }, []);
 
   if (user.loading) {
-    return <div>loading ...</div>
+    return <div>loading ...</div>;
   }
-  
+
   if (!user.user) {
-    return <div><Signin /></div>
+    return (
+      <div>
+        <Signin />
+      </div>
+    );
   }
-  
+
   return (
-    <>
-      You are logged in as {user.user.email}
-    </>
-  )
+    <div className="place-items-center grid">
+      <div className="max-w-screen-lg w-full">
+        <Topbar />
+        <Leaderboard />
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
