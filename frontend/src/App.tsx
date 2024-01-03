@@ -9,6 +9,7 @@ import { userAtom } from "./store/atoms/user";
 import { Topbar } from "./components/Topbar";
 import { Card } from "./components/Card";
 import { Leaderboard } from "./components/LeaderBoard";
+import SubmissionActivity from "./components/SubmissionActivity";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBp36r4pKHtr5vTXJF1as-HqZCvHnxFe9A",
@@ -18,7 +19,7 @@ const firebaseConfig = {
   storageBucket: "toptal-b252d.appspot.com",
   messagingSenderId: "721127361937",
   appId: "1:721127361937:web:d9223765565381c26f1e30",
-  measurementId: "G-X4BYY4B0BS"
+  measurementId: "G-X4BYY4B0BS",
 };
 
 // Initialize Firebase
@@ -54,23 +55,24 @@ function StoreApp() {
     });
   }, []);
 
-  if (user.loading) {
-    return <div>loading ...</div>;
-  }
+  // if (user.loading) {
+  //   return <div>loading ...</div>;
+  // }
 
-  if (!user.user) {
-    return (
-      <div>
-        <Signin />
-      </div>
-    );
-  }
+  // if (!user.user) {
+  //   return (
+  //     <div>
+  //       <Signin />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
-        <Topbar />
-        <Leaderboard />
+        {/* <Topbar />
+        <Leaderboard /> */}
+        <SubmissionActivity />
       </div>
     </div>
   );
