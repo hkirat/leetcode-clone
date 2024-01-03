@@ -1,0 +1,23 @@
+name: Deploy to firebase
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+    - name: Setup the code
+      run: npm install
+    - name: Test the code
+      run: npm test
+    - name: Deploy to Firebase
+      uses: hkirat/leetcode-clone
+      with:
+        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
