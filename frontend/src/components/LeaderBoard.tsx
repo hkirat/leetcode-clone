@@ -1,35 +1,60 @@
 // see https://erdos.sdslabs.co/users
+function stringToColor(string: string) {
+  let hash = 0;
+  let i;
+
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = "#";
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+
+  return color;
+}
+
 export const Leaderboard = ({
   leaderboard,
 }: {
   leaderboard: { image: string; name: string; points: number }[];
 }) => {
-  const data = [
-    { id: 1, icon: "", name: "Siddharth", points: 23 },
-    { id: 1, icon: "", name: "Ayush", points: 43 },
-    { id: 1, icon: "", name: "KKumar", points: 231 },
-    { id: 1, icon: "", name: "FEFE", points: 213 },
-    { id: 1, icon: "", name: "Jannat", points: 23 },
-    { id: 1, icon: "", name: "Siddharth", points: 34 },
-    { id: 1, icon: "", name: "Siddharth", points: 2344 },
-  ];
   return (
-    <div className="my-8">
-      <h1 className="text-bold text-4xl">Leaderboards</h1>
-      <div className="shadow-md my-4 mih-h-[50vh] px-4 py-4">
-        <div className="flex my-8">
-          <div className="w-1/3">Id</div>
-          <div className="w-1/3">Name</div>
-          <div className="w-1/3">Points</div>
+    <div className="max-w-[860px] p-4 mt-2 bg-white boxShadow">
+      <div className="flex justify-between items-center mb-4">
+        <div className="text-[1.2rem]">Leaderboard</div>
+        <div className="bg-[#24AE60] text-white p-[6px] text-[0.8rem]">
+          People you follow
         </div>
-        {data.map((item) => (
-          <div className="flex my-4 text-lg bg-white shadow-sm py-4 px-2">
-            <div className="w-1/3">{item.id}</div>
-            <div className="w-1/3">{item.name}</div>
-            <div className="w-1/3">{item.points}</div>
-          </div>
-        ))}
-        <div className="flex"></div>
+      </div>
+      <div className="flex flex-col">
+        {leaderboard.map((user, index) => {
+          return (
+            <div
+              key={index}
+              className="flex items-center h-[50px] mb-3  border-[#E4E4E4]"
+            >
+              <div className="flex items-center">
+                <div className="font-semibold mr-6">{index + 1}</div>
+                <div
+                  style={{ backgroundColor: stringToColor(user.name) }}
+                  className=" text-white rounded-full w-[30px] h-[30px] flex items-center justify-center text-[0.8rem]"
+                >
+                  {user.name[0].toUpperCase()}
+                </div>
+                <div className="ml-8 min-w-[250px] text-[#222222]">
+                  {user.name}
+                </div>
+              </div>
+              <div className="font-semibold w-3 flex justify-end items-center text-[#52525298]">
+                {user.points}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
