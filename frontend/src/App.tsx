@@ -5,9 +5,7 @@ import { useEffect } from "react";
 import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
 import { userAtom } from "./store/atoms/user";
 import { Topbar } from "./components/Topbar";
-import { Card } from "./components/Card";
-import { Leaderboard } from "./components/LeaderBoard";
-import { ProblemList } from "./components/ProblemList";
+import { ProblemCard } from './components/Problem';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBp36r4pKHtr5vTXJF1as-HqZCvHnxFe9A",
@@ -92,7 +90,8 @@ function StoreApp() {
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
         <Topbar />
-     <ProblemList />
+          <ProblemCard />
+
       </div>
     </div>
   );
