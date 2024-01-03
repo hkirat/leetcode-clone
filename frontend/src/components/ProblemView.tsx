@@ -6,9 +6,15 @@ import CodeEditor from "@uiw/react-textarea-code-editor";
 
 interface ProblemViewProps {}
 
+const baseCodes = {
+  js: `function add(a, b) {\n  return a + b;\n}`,
+  py: `def add(a, b):\n  return a + b`,
+  cpp: `int add(int a, int b) {\n  return a + b;\n}`,
+};
+
 const ProblemView: FC<ProblemViewProps> = ({}) => {
-  const [code, setCode] = useState(`function add(a, b) {\n  return a + b;\n}`);
-  const [markDown, setMarkDown] = useState(`
+  const [code, setCode] = useState<"js" | "py" | "cpp">("js");
+  const [markDown] = useState(`
 # Problem #1
 ##   
 
@@ -26,12 +32,12 @@ Find the value of D(1) + D(2) + ... + D(19216812112)
   `);
   const textRef = React.useRef(null);
   return (
-    <div className="max-w-[820px]">
+    <div className="max-w-[820px] ml-4 lg:ml-0">
       <div className="bg-white boxShadow p-4 mt-4 mb-4">
         <ReactMarkdown>{markDown}</ReactMarkdown>
       </div>
       <CodeEditor
-        value={code}
+        value={baseCodes[code]}
         ref={textRef}
         language="js"
         placeholder="Please enter JS code."
@@ -44,6 +50,21 @@ Find the value of D(1) + D(2) + ... + D(19216812112)
           fontSize: 14,
         }}
       />
+      <select
+        className="mt-4 mb-4"
+        onChange={(e) => {
+          setCode(
+            e.target.options[e.target.selectedIndex].value as
+              | "js"
+              | "py"
+              | "cpp"
+          );
+        }}
+      >
+        <option value="js">Javascript</option>
+        <option value="py">Python</option>
+        <option value="cpp">C++</option>
+      </select>
     </div>
   );
 };
