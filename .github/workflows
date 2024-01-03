@@ -1,0 +1,29 @@
+name: Deploy to firebase
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+    - name: Setup the code
+      run: npm install
+    - name: Test the code
+      run: npm test
+    - name: Deploy to Firebase
+        uses: sws2apps/firebase-deployment@main #consider using pin for dependabot auto update
+        with:
+          workloadIdentityProvider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          serviceAccount: ${{ secrets.SERVICE_ACCOUNT }}
+          node-version: 18 #optional, node-version you want to use following the Semantic Versioning Specification, default to current
+          config: 'frontend/firebase.json' #optional
+          function: true #optional & boolean
+          hosting: true #optional & boolean
+          project: my-firebase-project #required
