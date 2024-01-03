@@ -2,12 +2,9 @@ import { initializeApp } from "firebase/app";
 import { Signin } from "./components/Signin";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
-import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
+import { RecoilRoot, useRecoilState } from "recoil";
 import { userAtom } from "./store/atoms/user";
 import { Topbar } from "./components/Topbar";
-import { Card } from "./components/Card";
-import { Leaderboard } from "./components/LeaderBoard";
-import { SubmissionActivityList } from "./components/SubmissionActivityList";
 import { ProblemList } from "./components/ProblemList";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { About } from "./components/About";
@@ -38,31 +35,11 @@ function App() {
 function StoreApp() {
   const [user, setUser] = useRecoilState(userAtom);
 
-  const leaderboardData = [
-    { id: 1, icon: "", name: "Siddharth", points: 23 },
-    { id: 1, icon: "", name: "Ayush", points: 43 },
-    { id: 1, icon: "", name: "KKumar", points: 231 },
-    { id: 1, icon: "", name: "FEFE", points: 213 },
-    { id: 1, icon: "", name: "Jannat", points: 23 },
-    { id: 1, icon: "", name: "Siddharth", points: 34 },
-    { id: 1, icon: "", name: "Siddharth", points: 2344 },
-  ];
-
   const problemList = [
-    { id: 1, problemName: "Two Sum", tags: ["Array", "Hash Table"] },
-    { id: 2, problemName: "Reverse String", tags: ["String"] },
-    { id: 3, problemName: "Palindrome Check", tags: ["String"] },
-    { id: 4, problemName: "Merge Intervals", tags: ["Array", "Sorting"] },
-    { id: 5, problemName: "Linked List Cycle", tags: ["Linked List"] },
-    { id: 6, problemName: "Binary Search", tags: ["Array"] },
-    { id: 7, problemName: "Tree Traversal", tags: ["Tree"] },
-    { id: 8, problemName: "Graph Connectivity", tags: ["Graph"] },
-    {
-      id: 9,
-      problemName: "Dynamic Programming",
-      tags: ["Dynamic Programming"],
-    },
-    { id: 10, problemName: "Breadth-First Search", tags: ["Graph"] },
+    { id: "1", problemName: "Two Sum", tags: ["Array", "Hash Table"] },
+    { id: "2", problemName: "Reverse String", tags: ["String"] },
+    { id: "3", problemName: "Palindrome Check", tags: ["String"] },
+    { id: "4", problemName: "Merge Intervals", tags: ["Array", "Sorting"] },
   ];
 
   useEffect(() => {

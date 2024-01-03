@@ -1,9 +1,9 @@
 import axios from "axios";
-import { atom, selector } from "recoil";
+import { selector } from "recoil";
 
 export type Submission = {
     language: string;
-    timestamp: number;
+    timestamp: string;
     submission: string;
     status: string;
     username: string;
@@ -11,7 +11,7 @@ export type Submission = {
 }
 export const globalSubmissions = selector({
     key: 'globalSubmissions',
-    get: async ({get}) => {
+    get: async ({}) => {
       const response = await axios.get("https://getsubmissions-jpzo5bevwq-uc.a.run.app");
       return response.data.response.map((x: any) => ({
         language: x.submission.language,

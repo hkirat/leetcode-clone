@@ -63,11 +63,11 @@ export const SubmissionActivityListComponent: React.FC<SubmissionActivityListPro
 interface ListProps {
     username: string;
     problemId: string;
-    time: string;
+    timestamp: string;
     status: string;
 }
 
-function List({ problemId, time, status, username }: ListProps) {
+function List({ problemId, timestamp, status, username }: ListProps) {
     return (
         <div className="w-full overflow-x-auto">
             <div className="w-full bg-white font-light border-b hover:bg-gray-50 text-black flex items-center cursor-pointer">
@@ -77,7 +77,7 @@ function List({ problemId, time, status, username }: ListProps) {
                 <div className="cursor-pointer flex-3 px-6 py-4 text-gray-500 hover:text-black hover:font-normal">
                     #{problemId}
                 </div>
-                <div className="flex-3 mx-6 px-6 py-4">{time}</div>
+                <div className="flex-3 mx-6 px-6 py-4">{timestamp}</div>
                 <div className="flex-3 px-6 py-4 flex items-center">
                     {status === "AC" ? <img style={{height: 25}} src={"/check.png"} /> : <img style={{height: 25}} src="/cross.webp" />}
                 </div>

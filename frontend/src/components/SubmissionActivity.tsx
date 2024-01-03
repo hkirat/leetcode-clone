@@ -11,7 +11,6 @@ type Props = {
 
 const SubmissionActivity = ({
     dataValue,
-    label
 }: Props) => {
     const chartRef = useRef(null);
 
@@ -31,7 +30,7 @@ const SubmissionActivity = ({
 
     const customBackgroundColor = {
         id: 'customCanvasBackgroundColor',
-        beforeDraw: (chart: any, args: any, options: any) => {
+        beforeDraw: (chart: any, _args: any, options: any) => {
             const { ctx } = chart;
             ctx.save();
             ctx.globalCompositeOperation = 'destination-over';
@@ -41,7 +40,7 @@ const SubmissionActivity = ({
         }
     };
 
-    const getBarGraphConfig = (dataValue: any): ChartConfiguration<"line", (number | [number, number])[], unknown> => {
+    const getBarGraphConfig = (_dataValue: any): ChartConfiguration<"line", (number | [number, number])[], unknown> => {
         return {
             type: 'line',
             data: {
@@ -85,7 +84,7 @@ const SubmissionActivity = ({
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            callback: (value: any, index: any, ticks: any) => {
+                            callback: (value: any, _index: any, _ticks: any) => {
                                 return `${value}`;
                             },
                             font: {
@@ -122,7 +121,10 @@ const SubmissionActivity = ({
 
         if (barChartCanvas) {
             // Initialize chart
-            chartRef.current = new Chart(barChartCanvas, config);
+            if (chartRef) {
+                //@ts-ignore
+                chartRef.current = new Chart(barChartCanvas, config);
+            }
         }
 
         // Instantly assign Chart.js version
@@ -131,6 +133,7 @@ const SubmissionActivity = ({
 
         return () => {
             if (chartRef.current) {
+                //@ts-ignore
                 chartRef.current.destroy();
             }
         };
