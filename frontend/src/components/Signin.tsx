@@ -67,7 +67,12 @@ export const Signin = () => {
             placeholder="Password"
             className="input mb-4 border p-2 rounded-md w-full mx-8"
           />
-          <button className="flex justify-center items-center bg-black text-white px-6 py-2 rounded-lg mb-3 mt-2">
+          <button
+            onClick={() => {
+              onSignin();
+            }}
+            className="flex justify-center items-center bg-black text-white px-6 py-2 rounded-lg mb-3 mt-2"
+          >
             Sign In
           </button>
           <div>
