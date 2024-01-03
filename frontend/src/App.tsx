@@ -1,5 +1,3 @@
-import "./App.css";
-import { Landing } from "./components/Landing";
 import { initializeApp } from "firebase/app";
 import { Signin } from "./components/Signin";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -80,20 +78,16 @@ function StoreApp() {
         console.log("There is no logged in user");
       }
     });
-  }, []);
+  }, [])
 
   if (user.loading) {
     return <div>loading ...</div>;
   }
-
+  
   if (!user.user) {
-    return (
-      <div>
-        <Signin />
-      </div>
-    );
+    return <div><Signin /></div>
   }
-
+  
   return (
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
