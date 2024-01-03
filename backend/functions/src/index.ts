@@ -22,14 +22,22 @@ export const getSubmissions = onRequest({ cors: true }, async (request, response
     const limit = request.body.limit || 10;
     const res = await db.collection("submissions").limit(limit).orderBy("submitTime", "desc").get();
     const submissions = [];
-    res.docs.forEach(doc => {
-        submissions.push(doc.data())
-        console.log(doc.data())
+    console.log("res.docs")
+    console.log(res.docs.length)
+    res.docs.forEach(async doc => {
+        console.log("doc1");
+        submissions.push(new Promise(async (resolve) => {
+                console.log(doc.data().user)
+                const snapshot = await doc.data().user.get();
+                resolve({
+                    submission: doc.data(),
+                    user: snapshot.data()
+                })
+        }))
     })
 
     response.send({
-        response: submissions,
-        hi: 2
+        response: await Promise.all(submissions)
     })
 })
 

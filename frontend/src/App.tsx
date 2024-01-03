@@ -1,5 +1,3 @@
-import "./App.css";
-import { Landing } from "./components/Landing";
 import { initializeApp } from "firebase/app";
 import { Signin } from "./components/Signin";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -13,6 +11,8 @@ import { SubmissionActivityList } from "./components/SubmissionActivityList";
 import { ProblemList } from "./components/ProblemList";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { About } from "./components/About";
+import { Landing } from "./components/Landing";
+import { Submissions } from "./components/Sumissions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjjsbl9eSDWSmfrWpFPap2uGuwONZ2N4g",
@@ -82,20 +82,16 @@ function StoreApp() {
         console.log("There is no logged in user");
       }
     });
-  }, []);
+  }, [])
 
   if (user.loading) {
     return <div>loading ...</div>;
   }
-
+  
   if (!user.user) {
-    return (
-      <div>
-        <Signin />
-      </div>
-    );
+    return <div><Signin /></div>
   }
-
+  
   return (
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
@@ -104,7 +100,7 @@ function StoreApp() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/about" element={<About />} />
-            <Route path="/activity" element={<SubmissionActivityList />} />
+            <Route path="/activity" element={<Submissions />} />
             <Route path="/problems" element={<ProblemList problemList={problemList} />} />
           </Routes>
         </Router>
