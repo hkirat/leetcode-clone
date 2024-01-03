@@ -14,23 +14,27 @@ export const Leaderboard = ({
     { id: 1, icon: "", name: "Siddharth", points: 2344 },
   ];
   return (
-    <div className="my-8">
-      <h1 className="text-bold text-4xl">Leaderboards</h1>
-      <div className="shadow-md my-4 mih-h-[50vh] px-4 py-4">
-        <div className="flex my-8">
-          <div className="w-1/3">Id</div>
-          <div className="w-1/3">Name</div>
-          <div className="w-1/3">Points</div>
-        </div>
-        {data.map((item) => (
-          <div className="flex my-4 text-lg bg-white shadow-sm py-4 px-2">
-            <div className="w-1/3">{item.id}</div>
-            <div className="w-1/3">{item.name}</div>
-            <div className="w-1/3">{item.points}</div>
-          </div>
-        ))}
-        <div className="flex"></div>
-      </div>
+    <div className='my-8 shadow overflow-hidden rounded border-b border-gray-200'>
+      <h1 className='text-bold text-4xl py-4 px-4'>Leaderboards</h1>
+      <table className='my-4 mih-h-[50vh] min-w-full divide-y divide-gray-200'>
+        <thead className='bg-gray-50'>
+          <tr>
+            <th className="w-1/4 px-6 py-4 text-md font-medium text-gray-500 uppercase">ID</th>
+            <th className="w-1/2 px-6 py-4 text-md font-medium text-gray-500 uppercase">Name</th>
+            <th className="w-1/4 px-6 py-4 text-md font-medium text-gray-500 uppercase">Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, idx) => (
+            <tr key={idx} className={`${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'} py-4 px-2 text-center`}>
+              <td className='w-1/4 px-6 py-4 whitespace-nowrap text-gray-500'>{item.id}</td>
+              <td className='w-1/2 px-6 py-4 whitespace-nowrap text-gray-500'>{item.name}</td>
+              <td className='w-1/4 px-6 py-4 whitespace-nowrap text-gray-500'>{item.points}</td>
+            </tr>
+          ))}
+        </tbody>
+        {/* <div className='flex'></div> */}
+      </table>
     </div>
   );
 };
