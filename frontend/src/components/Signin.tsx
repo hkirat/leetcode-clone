@@ -49,9 +49,10 @@ export const Signin = () => {
   return (
     <div className='min-h-[100vh] flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-black'>
       <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
-        <div className='bg-white py-12 px-4 shadow sm:rounded-lg sm:px-10'>
+        <div className='w-[90%] bg-white mx-auto shadow rounded px-10 md:px-4 py-16'>
+          <div className="flex items-center justify-center mb-8"><span className="font-extrabold text-4xl">Daily Code.</span></div>
           <div className='flex flex-col items-center justify-center gap-4'>
-            <p className='font-normal text-2xl text-gray-900'>Welcome</p>
+            <p className='font-light text-2xl text-gray-900'>Welcome</p>
 
             <p className='font-light text-sm text-gray-600'>
               Log in to continue to DailyCode.
