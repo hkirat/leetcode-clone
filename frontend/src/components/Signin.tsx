@@ -3,6 +3,7 @@ import { useState } from "react";
 import { auth } from "../App";
 import { GoogleAuthProvider } from "firebase/auth";
 import Google from "../assets/search 1.png";
+import Github from "../assets/github2.png";
 import "./Signin.css";
 
 const provider = new GoogleAuthProvider();
@@ -57,12 +58,18 @@ export const Signin = () => {
       <div className="login-data sm:w-[50%] w-full bgDoodle">
         <div className="login-data-cointainer">
           <div className="login-head">Create an Account</div>
-          <div>
-            <button className="flex justify-center items-center transition-all gap-3 bg-[#2577d5] hover:bg-[#2984ec] active:bg-[#195498] p-4 rounded-[200px]">
+          <div className="flex flex-col gap-4 items-center">
+            <button className="flex justify-center items-center transition-all gap-3 bg-[#2577d5] hover:bg-[#2984ec] active:bg-[#195498] pt-2 pb-2 pl-4 pr-4 rounded-[200px]">
               <div className="w-[20px] h-[20px]">
                 <img src={Google} alt="" />
               </div>{" "}
               Sign Up with Google
+            </button>
+            <button className="flex text-black justify-center items-center transition-all gap-3 bg-[#ebebebe6] hover:bg-[#ffffffed] active:bg-[#dcdcdccf] pt-2 pb-2 pl-4 pr-4 rounded-[200px]">
+              <div className="w-[20px] h-[20px]">
+                <img src={Github} alt="" />
+              </div>{" "}
+              Sign Up with Github
             </button>
           </div>
         </div>
