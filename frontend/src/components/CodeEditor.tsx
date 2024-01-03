@@ -51,7 +51,7 @@ const CodeEditor = () => {
           onChange={(e) => setLanguage(e.target.value)}
         >
           {languages.map((language, idx) => (
-            <option key={language} value={language}>
+            <option key={idx} value={language}>
               {language.charAt(0).toUpperCase() + language.slice(1)}
             </option>
           ))}
@@ -62,6 +62,7 @@ const CodeEditor = () => {
           height='90vh'
           language={language.toLowerCase()}
           options={options}
+          theme='vs-dark'
         />
       </div>
     </div>
