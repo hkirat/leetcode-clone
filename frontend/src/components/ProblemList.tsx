@@ -1,6 +1,6 @@
 // see https://erdos.sdslabs.co/problems specifically the list of problems
 
-import { Tag, TagContainer } from "./Tag";
+import { TagContainer } from "./Tag";
 
 interface ProblemType {
   id: string;
@@ -13,7 +13,7 @@ export const ProblemList = ({
 }: {
   problemList: ProblemType[];
 }) => {
-  const tagJSX = <div></div>;
+
   return (
     // The first div sould probably be a reusable component for layouting
     <div className="my-8">

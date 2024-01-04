@@ -1,42 +1,44 @@
-import React, { useState } from 'react';
 
-interface Submission {
-    Name: string;
-    username: string;
-    position: number;
-    time: string;
-    answerIsCorrect: boolean;
+import { Suspense, useState } from "react"
+import { useRecoilValue } from "recoil"
+import { Submission, globalSubmissions } from "../store/atoms/submissions"
+import { Card } from "./Card"
+
+// see left side of https://erdos.sdslabs.co/activity
+export const SubmissionActivityList = () => {
+    return <Suspense fallback={"loading..."}>
+        <_SubmissionActivityList />
+    </Suspense>
 }
 
-
-// Example Object : 
-// const submissions = [
-//     { Name: 'John', position: 1, time: '10:00', answerIsCorrect: true },
-//     // Add more submissions as needed
-// ];
+const _SubmissionActivityList = () => {
+    const submissions = useRecoilValue(globalSubmissions);
+    return <Card>
+        <SubmissionActivityListComponent submissions={submissions} />
+    </Card>
+}
 
 interface SubmissionActivityListProps {
     submissions: Submission[];
 }
 
-export const SubmissionActivityList: React.FC<SubmissionActivityListProps> = ({ submissions }) => {
+export const SubmissionActivityListComponent: React.FC<SubmissionActivityListProps> = ({ submissions }) => {
     const [startIndex, setStartIndex] = useState(0);
     const itemsPerPage = 4;
 
     const visibleSubmissions = submissions.slice(startIndex, startIndex + itemsPerPage);
 
     const handleNext = () => {
-    const nextPageStartIndex = startIndex + itemsPerPage;
-    if (nextPageStartIndex < submissions.length) {
-        setStartIndex(nextPageStartIndex);
-    }
-};
+        const nextPageStartIndex = startIndex + itemsPerPage;
+        if (nextPageStartIndex < submissions.length) {
+            setStartIndex(nextPageStartIndex);
+        }
+    };
 
 
-const handlePrev = () => {
-    setStartIndex((prevIndex) => Math.max(prevIndex - itemsPerPage, 0));
-};
-
+    const handlePrev = () => {
+        setStartIndex((prevIndex) => Math.max(prevIndex - itemsPerPage, 0));
+    };
 
     return (
         <div className="p-0 w-full">
@@ -59,30 +61,27 @@ const handlePrev = () => {
 };
 
 interface ListProps {
-    Name: string;
     username: string;
-    position: number;
-    time: string;
-    answerIsCorrect: boolean;
+    problemId: string;
+    timestamp: string;
+    status: string;
 }
 
-function List({ Name, position, time, answerIsCorrect, username }: ListProps) {
+function List({ problemId, timestamp, status, username }: ListProps) {
     return (
         <div className="w-full overflow-x-auto">
-            <div className="w-full bg-white font-light border-b hover:bg-gray-50 text-black flex items-center">
+            <div className="w-full bg-white font-light border-b hover:bg-gray-50 text-black flex items-center cursor-pointer">
                 <div className="flex-1 px-6 py-4">
-                    {Name} ({username})
+                    {username}
                 </div>
                 <div className="cursor-pointer flex-3 px-6 py-4 text-gray-500 hover:text-black hover:font-normal">
-                    #{position}
+                    #{problemId}
                 </div>
-                <div className="flex-3 mx-6 px-6 py-4">{time}</div>
+                <div className="flex-3 mx-6 px-6 py-4">{timestamp}</div>
                 <div className="flex-3 px-6 py-4 flex items-center">
-                    {answerIsCorrect ? <h1>Correct</h1> : <h1>False</h1>}
+                    {status === "AC" ? <img style={{height: 25}} src={"/check.png"} /> : <img style={{height: 25}} src="/cross.webp" />}
                 </div>
             </div>
         </div>
     );
 }
-
-export default List;
