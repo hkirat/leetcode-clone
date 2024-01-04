@@ -7,13 +7,13 @@ export const CodeEditor = () => {
   const getInitialCode = (language: any) => {
     switch (language) {
       case "javascript":
-        return 'console.log("Hello, Monaco Editor!");';
+        return 'console.log("Hello, Daily Coder!");';
       case "python":
-        return 'print("Hello, Monaco Editor!")';
+        return 'print("Hello, Daily Coder!")';
       case "c++":
-        return '#include <iostream>\n\nint main() {\n  std::cout << "Hello, Monaco Editor!" << std::endl;\n  return 0;\n}';
+        return '#include <iostream>\n\nint main() {\n  std::cout << "Hello, Daily Coder!" << std::endl;\n  return 0;\n}';
       case "java":
-        return 'public class HelloWorld {\n  public static void main(String[] args) {\n    System.out.println("Hello, Monaco Editor!");\n  }\n}';
+        return 'public class HelloWorld {\n  public static void main(String[] args) {\n    System.out.println("Hello, Daily Coder!");\n  }\n}';
       default:
         return '';
     }
