@@ -1,4 +1,5 @@
 import CodeEditor from './CodeEditor';
+import MarkdownEditor from './MarkdownEditor';
 
 const problem = {
   id: '1',
@@ -47,7 +48,7 @@ const Problem = () => {
         </div>
         <p className='font-light text-xs'>Solved by {problem.solvedBy} users</p>
       </div>
-      <CodeEditor />
+      <MarkdownEditor />
     </>
   );
 };
