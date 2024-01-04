@@ -1,4 +1,3 @@
-import CodeEditor from './CodeEditor';
 import MarkdownEditor from './MarkdownEditor';
 
 const problem = {
