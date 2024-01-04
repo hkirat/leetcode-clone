@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { About } from "./components/About";
 import { Landing } from "./components/Landing";
 import { Submissions } from "./components/Sumissions";
+import { Problem } from "./components/Problem";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjjsbl9eSDWSmfrWpFPap2uGuwONZ2N4g",
@@ -36,10 +37,30 @@ function StoreApp() {
   const [user, setUser] = useRecoilState(userAtom);
 
   const problemList = [
-    { id: "1", problemName: "Two Sum", tags: ["Array", "Hash Table"] },
-    { id: "2", problemName: "Reverse String", tags: ["String"] },
-    { id: "3", problemName: "Palindrome Check", tags: ["String"] },
-    { id: "4", problemName: "Merge Intervals", tags: ["Array", "Sorting"] },
+    {
+      id: "1",
+      problemName: "Two Sum",
+      tags: ["Array", "Hash Table"],
+      description: " Let there be a set of N natural numbers 1,2,3,4...N. We are allowed to insert + or − sign in front of each number and add all the resultant numbers. The minimum non-­negative value obtained is denoted as D(N).Find the value of D(1)+D(2)+...+D(19216812112)"
+    },
+    {
+      id: "2",
+      problemName: "Reverse String",
+      tags: ["String"],
+      description: "Write a function that reverses a string. Do it in-place without allocating extra space."
+    },
+    {
+      id: "3",
+      problemName: "Palindrome Check",
+      tags: ["String"],
+      description: "Determine whether an input string is a palindrome. Consider only alphanumeric characters and ignore cases."
+    },
+    {
+      id: "4",
+      problemName: "Merge Intervals",
+      tags: ["Array", "Sorting"],
+      description: "Given a collection of intervals, merge any overlapping intervals."
+    },
   ];
 
   useEffect(() => {
@@ -79,6 +100,7 @@ function StoreApp() {
             <Route path="/about" element={<About />} />
             <Route path="/activity" element={<Submissions />} />
             <Route path="/problems" element={<ProblemList problemList={problemList} />} />
+            <Route path="/problems/:id" element={<Problem problemList={problemList} />} />
           </Routes>
         </Router>
         {/* <Leaderboard /> */}
