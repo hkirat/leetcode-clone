@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { About } from "./components/About";
 import { Landing } from "./components/Landing";
 import { Submissions } from "./components/Sumissions";
+import Problem from "./components/Problem";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjjsbl9eSDWSmfrWpFPap2uGuwONZ2N4g",
@@ -18,7 +19,7 @@ const firebaseConfig = {
   storageBucket: "leetcode-clone-c39eb.appspot.com",
   messagingSenderId: "66814187798",
   appId: "1:66814187798:web:a6b3702e191448722dd837",
-  measurementId: "G-ET5FNB5WCN"
+  measurementId: "G-ET5FNB5WCN",
 };
 
 // Initialize Firebase
@@ -59,26 +60,31 @@ function StoreApp() {
         console.log("There is no logged in user");
       }
     });
-  }, [])
+  }, []);
 
   if (user.loading) {
     return <div>loading ...</div>;
   }
-  
+
   if (!user.user) {
-    return <div><Signin /></div>
+    return (
+      <div>
+        <Signin />
+      </div>
+    );
   }
-  
+
   return (
     <div className="place-items-center grid">
       <div className="max-w-screen-lg w-full">
-      <Router>
-        <Topbar />
+        <Router>
+          <Topbar />
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/about" element={<About />} />
             <Route path="/activity" element={<Submissions />} />
             <Route path="/problems" element={<ProblemList problemList={problemList} />} />
+            <Route path="/problem/:id" element={<Problem />} />
           </Routes>
         </Router>
         {/* <Leaderboard /> */}

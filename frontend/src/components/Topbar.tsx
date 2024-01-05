@@ -16,14 +16,14 @@ const topbarItems =[
         title: "About",
         route: "/about"
     }, {
-        title: "Acitivity",
+        title: "Activity",
         route: "/activity"
     }, {
         title: "Problems",
         route: "/problems"
     }, {
         title: "Leaderboard",
-        route: "/leaderboar"
+        route: "/leaderboard"
     }
 ]
 function NavBar() {
