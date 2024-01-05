@@ -7,5 +7,6 @@ Build an end to end leetcode clone
  - Users should be able to submit solutions and get back results
  - Users should get points based on how fast their submission was
  - Global leaderboard which contains daily, weekly, monthly and all time rankers
+ - This is a awesome website to code daily.
 
 Deployed here - https://leetcode-clone-topaz.vercel.app/activity
