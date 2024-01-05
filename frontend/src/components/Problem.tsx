@@ -2,11 +2,14 @@ import CodeMirror, { Extension, ReactCodeMirrorRef } from "@uiw/react-codemirror
 import { javascript } from "@codemirror/lang-javascript";
 import { python } from "@codemirror/lang-python";
 import { useEffect, useRef, useState } from "react";
+import ResizeHandle from "./Panel/ResizeHandle";
 import Dropdown from "./Dropdown";
 import { PanelGroup, Panel } from "react-resizable-panels";
-import ResizeHandle from "./Panel/ResizeHandle";
 import { syntaxTree } from "@codemirror/language";
 import { OptionType } from "../interfaces";
+import ProblemMarkdown from "../constants/problem.mdx";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 function Problem() {
   const [extensionsList, setExtensionsList] = useState<Extension[]>([]);
@@ -81,21 +84,31 @@ function Problem() {
                 overflow: "hidden",
                 borderRadius: "0.5rem",
               }}
-              className="bg-slate-950 text-white mt-2 p-3"
+              className="bg-slate-950 text-white mt-2 p-5"
             >
-              <p>
-                Given an integer array nums sorted in non-decreasing order, remove the duplicates
-                in-place such that each unique element appears only once. The relative order of the
-                elements should be kept the same.
-              </p>
-              <p>Then return the number of unique elements in nums.</p>
-              <p>
-                Consider the number of unique elements of nums to be k, to get accepted, you need to
-                do the following things: Change the array nums such that the first k elements of
-                nums contain the unique elements in the order they were present in nums initially.
-                The remaining elements of nums are not important as well as the size of nums. Return
-                k.
-              </p>
+              <ProblemMarkdown
+                components={{
+                  h2: ({ children }) => (
+                    <p className="text-green-600 font-semibold text-xl py-3">{children}</p>
+                  ),
+                  p: ({ children }) => <p className="text-white py-3">{children}</p>,
+                  code(props) {
+                    const { children, className, ...rest } = props;
+                    const match = /language-(\w+)/.exec(className || "");
+                    return match ? (
+                      <SyntaxHighlighter
+                        children={String(children).replace(/\n$/, "")}
+                        language={"javascript"}
+                        style={atomOneDark}
+                      />
+                    ) : (
+                      <code {...rest} className={className}>
+                        {children}
+                      </code>
+                    );
+                  },
+                }}
+              />
             </div>
           </Panel>
           <ResizeHandle />
