@@ -13,8 +13,12 @@ const db = getFirestore();
 setGlobalOptions({maxInstances: 10});
 
 export const helloWorld = onRequest((request, response) => {
+  try{
   logger.info("Hello logs!", {structuredData: true});
   response.send("Hello from Firebase!");
+  }catch(error){
+     console.error("Error in helloWorld function:", error);
+        response.status(500).send("Internal Server Error");}
 });
 
 export const getSubmissions = onRequest({ cors: true }, async (request, response) => {
