@@ -1,6 +1,6 @@
 // see https://erdos.sdslabs.co/problems specifically the list of problems
 
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TagContainer } from "./Tag";
 
 interface ProblemType {
