@@ -37,7 +37,7 @@ function NavbarItem({title, route}: {
     route: string;
 }) {
     return <Link to={route}>
-        <div className="mr-10 text-slate-500 text-lg cursor-pointer hover:text-white text-base font-light">
+        <div className="mr-10 text-slate-500 text-lg cursor-pointer hover:text-white text-base font-light font-mono">
             {title}
         </div>
     </Link>
