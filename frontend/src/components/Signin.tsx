@@ -76,7 +76,7 @@ export const Signin = () => {
                             </div>
                         </div>
                         <div className="p-2 text-center">
-                            <p className="text-gray-400">New to Neon? <a href="#" className="text-blue-500">Sign up for an account</a></p>
+                            <p className="text-gray-400">New to Daily Code? <a href="#" className="text-blue-500">Sign up for an account</a></p>
                         </div>
                     </div>
                 </div>

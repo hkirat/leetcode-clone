@@ -16,14 +16,14 @@ const topbarItems =[
         title: "About",
         route: "/about"
     }, {
-        title: "Acitivity",
+        title: "Activity",
         route: "/activity"
     }, {
         title: "Problems",
         route: "/problems"
     }, {
         title: "Leaderboard",
-        route: "/leaderboar"
+        route: "/leaderboard"
     }
 ]
 function NavBar() {
@@ -37,7 +37,7 @@ function NavbarItem({title, route}: {
     route: string;
 }) {
     return <Link to={route}>
-        <div className="mr-10 text-slate-500 text-lg cursor-pointer hover:text-white text-base font-light">
+        <div className="mr-10 text-slate-500 text-lg cursor-pointer hover:text-white font-light">
             {title}
         </div>
     </Link>
